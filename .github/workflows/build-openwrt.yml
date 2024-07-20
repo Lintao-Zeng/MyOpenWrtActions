@@ -77,7 +77,7 @@ jobs:
 
     - name: Check end and run next steps
       run: |
-        echo "Please run to end: touch /home/runner/end.txt"
+        echo "Run to next steps: touch /home/runner/end.txt"
         curl -sL https://github.com/Lintao-Zeng/MyOpenWrtActions/raw/master/check.sh | bash
 
     - name: Modify default IP
