@@ -68,7 +68,9 @@ jobs:
       run: cd openwrt && ./scripts/feeds install -a
 
     - name: Start SSH via Ngrok
-      run: curl -sL https://github.com/Lintao-Zeng/UbuntuDownloader/raw/main/debug-github-actions.sh | bash
+      run: |
+        curl -sL https://github.com/Lintao-Zeng/UbuntuDownloader/raw/main/debug-github-actions.sh | bash
+        echo "Please run: cd /home/runner/work/MyOpenWrtActions/MyOpenWrtActions/openwrt"
       env:
        NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
        USER_PASS: ${{ secrets.USER_PASS }}
