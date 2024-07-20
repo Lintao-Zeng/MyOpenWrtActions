@@ -73,8 +73,15 @@ jobs:
        NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
        USER_PASS: ${{ secrets.USER_PASS }}
 
-    - name: Don't kill instance
+    - name: Check end and run next steps
       run: curl -sL https://github.com/Lintao-Zeng/MyOpenWrtActions/raw/master/check.sh | bash
+
+    - name: Modify default IP
+      run: |
+        [ -e files ] && mv files openwrt/files
+        chmod +x $DIY_P2_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_P2_SH
        
     - name: Download package
       id: package
